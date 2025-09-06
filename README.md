@@ -17,6 +17,36 @@ jout ls /var/log | fx '.map(x => ({name: x.name, size: x.size, mtime: x.mtime}))
 jout ps --user "$USER" | fx .length
 ```
 
+## Tools
+
+- [x] `ls`
+  - [x] Linux
+  - [x] Mac
+  - [x] Windows
+- [x] `ps`
+  - [x] Linux
+  - [x] Mac
+  - [ ] Winodws
+
+### Todo
+- top
+- pstree
+- ping
+- traceroute
+- nslookup
+- dig
+- host
+- whois
+- ifconfig
+- iwconfig
+- route
+- arp
+- ss
+- hostname
+- mtr
+- df
+- du
+
 ## Versioning policy
 - We do **not** ship breaking changes; public behavior and JSON schemas remain backward-compatible.
 - From **v1.0** onward, JSON schemas are **stable**: no breaking changes within **1.x** (additive changes only).
