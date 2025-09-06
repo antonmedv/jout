@@ -8,14 +8,13 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"os/exec"
 	"os/user"
 	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
 	"time"
-
-	"golang.org/x/sys/unix"
 )
 
 // collectProcesses gathers processes using the Linux /proc filesystem.
@@ -458,10 +457,13 @@ func bootTime() (int64, error) {
 }
 
 func clockTicks() int64 {
-	v, err := unix.Sysconf(unix._SC_CLK_TCK)
-	if err == nil && v > 0 {
-		return v
+	// Prefer a portable query via `getconf` (available on most Linux distros).
+	if out, err := exec.Command("getconf", "CLK_TCK").Output(); err == nil {
+		s := strings.TrimSpace(string(out))
+		if n, err := strconv.ParseInt(s, 10, 64); err == nil && n > 0 {
+			return n
+		}
 	}
-	// Fallback—common on Linux
+	// Fallback to a conservative default used by many kernels/distros.
 	return 100
 }
