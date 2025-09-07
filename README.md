@@ -30,7 +30,7 @@ jout ps --user "$USER" | fx .length
 - [x] `ps`
   - [x] Linux
   - [x] Mac
-  - [ ] Winodws
+  - [x] Windows
 - [ ] top
 - [ ] pstree
 - [ ] ping
