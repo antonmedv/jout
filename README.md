@@ -1,4 +1,8 @@
-# jout — Run commands, get JSON
+# jout
+
+::: note
+**Jout** — JSON output
+:::
 
 **Jout** reimplements classic Unix utilities with JSON output by design.
 Use `jout ls`, `jout ps`, etc., and receive stable, well-defined JSON
@@ -27,25 +31,23 @@ jout ps --user "$USER" | fx .length
   - [x] Linux
   - [x] Mac
   - [ ] Winodws
-
-### Todo
-- top
-- pstree
-- ping
-- traceroute
-- nslookup
-- dig
-- host
-- whois
-- ifconfig
-- iwconfig
-- route
-- arp
-- ss
-- hostname
-- mtr
-- df
-- du
+- [ ] top
+- [ ] pstree
+- [ ] ping
+- [ ] traceroute
+- [ ] nslookup
+- [ ] dig
+- [ ] host
+- [ ] whois
+- [ ] ifconfig
+- [ ] iwconfig
+- [ ] route
+- [ ] arp
+- [ ] ss
+- [ ] hostname
+- [ ] mtr
+- [ ] df
+- [ ] du
 
 ## Versioning policy
 - We do **not** ship breaking changes; public behavior and JSON schemas remain backward-compatible.
