@@ -12,32 +12,23 @@ import (
 )
 
 type Entry struct {
-	// Identity
-	Name  string `json:"name"`
-	Path  string `json:"path"`
-	Type  string `json:"type"`
-	IsDir bool   `json:"is_dir"`
-
-	// Symlink info
+	Name       string `json:"name"`
+	Path       string `json:"path"`
+	Type       string `json:"type"`
+	IsDir      bool   `json:"is_dir"`
 	LinkTarget string `json:"link_target,omitempty"`
-
-	// Size and permissions
-	Size      int64  `json:"size_bytes"`
-	ModeStr   string `json:"mode_str"`
-	ModeOctal string `json:"mode_octal_octal"`
-
-	// Ownership and links
-	Inode uint64 `json:"inode,omitempty"`
-	Nlink uint64 `json:"nlink,omitempty"`
-	Uid   uint32 `json:"uid,omitempty"`
-	Gid   uint32 `json:"gid,omitempty"`
-	Owner string `json:"owner,omitempty"`
-	Group string `json:"group,omitempty"`
-
-	// Timestamps
-	Mtime string `json:"mtime"`
-	Atime string `json:"atime,omitempty"`
-	Ctime string `json:"ctime,omitempty"`
+	Size       int64  `json:"size_bytes"`
+	ModeStr    string `json:"mode_str"`
+	ModeOctal  string `json:"mode_octal"`
+	Inode      uint64 `json:"inode,omitempty"`
+	Nlink      uint64 `json:"nlink,omitempty"`
+	Uid        uint32 `json:"uid,omitempty"`
+	Gid        uint32 `json:"gid,omitempty"`
+	Owner      string `json:"owner,omitempty"`
+	Group      string `json:"group,omitempty"`
+	Mtime      string `json:"mtime"`
+	Atime      string `json:"atime,omitempty"`
+	Ctime      string `json:"ctime,omitempty"`
 }
 
 func makeEntry(name, fullPath string, info os.FileInfo) Entry {
