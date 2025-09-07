@@ -1,9 +1,5 @@
 # jout
 
-::: note
-**Jout** — JSON output
-:::
-
 **Jout** reimplements classic Unix utilities with JSON output by design.
 Use `jout ls`, `jout ps`, etc., and receive stable, well-defined JSON
 that’s safe for scripts, logs, and APIs.
@@ -11,14 +7,14 @@ that’s safe for scripts, logs, and APIs.
 - Familiar subcommands (`ls`, `ps`, …)
 - Stable, documented schemas
 - ISO 8601 times, byte-accurate sizes
-- Works great with [**fx**](https://fx.wtf)
+- Works great with [fx](https://fx.wtf) and [jq](https://jqlang.org/)
 
 ```bash
 # Files as JSON
-jout ls /var/log | fx '.map(x => ({name: x.name, size: x.size, mtime: x.mtime}))'
+jout ls /var/log
 
 # Processes as JSON
-jout ps --user "$USER" | fx .length
+jout ps --user "$USER"
 ```
 
 ## Tools
